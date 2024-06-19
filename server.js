@@ -17,6 +17,16 @@ const authRouter = require('./routes/auth')
 const authLogin = require('./routes/auth')
 const authSignup = require('./routes/auth')
 
+const cookieParser = require('cookie-parser')
+
+app.use(cookieParser())
+
+// Middleware для визначення поточної URL-адреси
+app.use((req, res, next) => {
+  res.locals.currentPath = req.path
+  next()
+})
+
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
 app.set('layout', 'layouts/layout')
@@ -45,9 +55,16 @@ app.use('/library', indexRouter)
 app.use('/authors', authorRouter)
 app.use('/books', bookRouter)
 
+app.get('/set-cookies', (req, res) => {
+  res.cookie('newUser', false)
+  res.cookie('isEmployee', true, { maxAge: 1000 * 60 * 60 * 24, httpOnly: true })
+  res.send('you got the cookies!')
+})
+
+app.get('/read-cookies', (req, res) => {
+  const cookies = req.cookies
+  console.log(cookies.newUser)
+  res.json(cookies)
+})
 
 app.listen(process.env.PORT || 3002)
-
-// cookies не зрозуміла це
-const cookieParser = require('cookie-parser');
-app.use(cookieParser());
