@@ -1,9 +1,4 @@
-/*public/stylesheets/shared/header.css*/
-:root {
-  --nav-title-font-size: 3rem;
-  --nav-title-font-weight: bold;
-  --nav-link-font-weight: 300;
-}
+/* public/stylesheets/shared/header.css */
 
 .header-title {
   color: var(--color-text-light);
@@ -22,22 +17,46 @@
 
 .header-nav ul {
   display: flex;
+  align-items: center;
   margin: 0;
   padding: 0;
+  margin-right: 25px;
 }
 
 .header-nav li {
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.header-nav li a {
+.header-nav li a,
+.header-nav li h4 {
   text-decoration: none;
   color: var(--color-text-light);
   font-weight: var(--nav-link-font-weight);
-  padding: 1rem;
+  padding: var(--header-nav-item-padding);
+  display: flex;
+  align-items: center;
 }
 
 .header-nav li a:hover,
 .header-title:hover {
   color: white;
+}
+
+.header-nav .logout-button {
+  background-color: var(--color-light-blue);
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  color: var(--color-dark-blue);
+  /* Ensure this variable is defined correctly */
+  text-align: center;
+  text-decoration: none;
+  font-weight: var(--nav-link-font-weight);
+}
+
+.header-nav .logout-button:hover {
+  background-color: var(--color-btn-primary-background-dark);
+  color: var(--color-btn-primary-text-dark);
 }

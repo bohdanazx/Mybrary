@@ -1,4 +1,4 @@
-/*public/stylesheets/shared/variables.css*/
+/* public/stylesheets/shared/variables.css */
 
 :root {
   --color-base-hue: 200;
@@ -15,4 +15,12 @@
   --color-btn-danger-background-dark: hsl(var(--color-danger-hue), 100%, 73%);
   --color-btn-danger-text: black;
   --color-btn-danger-text-dark: black;
+
+  --nav-title-font-size: 3rem;
+  --nav-title-font-weight: bold;
+  --nav-link-font-weight: 300;
+  --header-nav-item-padding: 1rem;
+  --color-light-blue: hsl(200, 100%, 87%);
+  --color-dark-blue: hsl(200, 100%, 20%);
+  /* New dark blue color */
 }
